@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Ahmad Alfathussholih — Portofolio</title>
+
+    <!-- Font dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --bg: #F6F8F7;
+        --surface: #ffffff;
+        --ink: #12201A;
+        --muted: #55645C;
+        --line: #DCE3DF;
+        --brand: #2F5D4A;
+        --brand-ink: #ffffff;
+        --soft: #E6EFEA;
+        --code-bg: #12201A;
+        --code-ink: #DDE8E2;
+        --code-tag: #7FCBA6;
+        --code-str: #F2C879;
+        --font: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0E1512;
+          --surface: #151F1A;
+          --ink: #E7EFEA;
+          --muted: #9BAAA1;
+          --line: #25332C;
+          --brand: #6FB394;
+          --brand-ink: #0E1512;
+          --soft: #1B2A23;
+          --code-bg: #0A100D;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0E1512;
+        --surface: #151F1A;
+        --ink: #E7EFEA;
+        --muted: #9BAAA1;
+        --line: #25332C;
+        --brand: #6FB394;
+        --brand-ink: #0E1512;
+        --soft: #1B2A23;
+        --code-bg: #0A100D;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 76px);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 400 1.0625rem/1.7 var(--font);
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--brand);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 40px);
+      }
+      header {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 5;
+        background: color-mix(in srgb, var(--bg) 90%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      header .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        min-height: 64px;
+      }
+      .brand {
+        font-weight: 800;
+        text-decoration: none;
+        letter-spacing: -0.01em;
+      }
+      nav {
+        display: flex;
+        gap: clamp(16px, 4vw, 32px);
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--muted);
+        padding: 6px 0;
+      }
+      nav a:hover {
+        color: var(--brand);
+      }
+      .hero {
+        min-height: calc(100vh - 64px);
+        min-height: calc(100svh - 64px);
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: clamp(28px, 6vw, 72px);
+        align-items: center;
+        padding: 56px 0;
+      }
+      .hi {
+        margin: 0 0 10px;
+        color: var(--muted);
+      }
+      h1 {
+        font: 800 clamp(2.2rem, 5.6vw, 3.7rem)/1.06 var(--font);
+        letter-spacing: -0.03em;
+        margin: 0 0 10px;
+        overflow-wrap: anywhere;
+      }
+      .role {
+        font: 800 clamp(1.15rem, 2.6vw, 1.6rem)/1.2 var(--font);
+        color: var(--brand);
+        margin: 0 0 26px;
+        letter-spacing: -0.01em;
+      }
+      .lead {
+        color: var(--muted);
+        max-width: 30em;
+        margin: 0 0 32px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 13px 30px;
+        border-radius: 99px;
+        background: var(--brand);
+        color: var(--brand-ink);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .btn:hover {
+        filter: brightness(1.08);
+      }
+      .panel {
+        background: var(--code-bg);
+        color: var(--code-ink);
+        border-radius: 16px;
+        padding: 26px 28px;
+        font: 400 0.95rem/1.9 var(--mono);
+        white-space: pre;
+        overflow-x: auto;
+        box-shadow: 0 0 0 1px var(--line);
+      }
+      .t {
+        color: var(--code-tag);
+      }
+      .q {
+        color: var(--code-str);
+      }
+      section.block {
+        padding: clamp(64px, 9vw, 110px) 0;
+        border-top: 1px solid var(--line);
+      }
+      h2 {
+        font: 800 clamp(1.7rem, 3.6vw, 2.3rem)/1.1 var(--font);
+        letter-spacing: -0.025em;
+        margin: 0 0 40px;
+      }
+      .about {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: clamp(24px, 5vw, 56px);
+        align-items: start;
+      }
+      .avatar {
+        width: clamp(110px, 18vw, 168px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--soft);
+        color: var(--brand);
+        display: grid;
+        place-items: center;
+        font: 800 clamp(2.2rem, 5vw, 3.4rem) var(--font);
+        letter-spacing: -0.02em;
+        border: 1px solid var(--line);
+      }
+      .about p {
+        margin: 0 0 20px;
+        max-width: 38em;
+      }
+      dl {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 8rem 1fr;
+        gap: 10px 20px;
+        border-top: 1px solid var(--line);
+        padding-top: 20px;
+        max-width: 38em;
+      }
+      dt {
+        color: var(--muted);
+      }
+      dd {
+        margin: 0;
+        font-weight: 600;
+      }
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .skill {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 28px;
+      }
+      .skill svg {
+        width: 56px;
+        height: 56px;
+        display: block;
+        margin-bottom: 20px;
+      }
+      .skill h3 {
+        font: 600 1.2rem var(--font);
+        margin: 0 0 6px;
+      }
+      .skill p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .map {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--soft);
+        margin-bottom: 40px;
+        position: relative;
+      }
+      .map svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .map .land  { fill: var(--soft); }
+      .map .park  { fill: var(--brand); opacity: 0.18; }
+      .map .water { fill: var(--brand); opacity: 0.1; }
+      .map .road  { stroke: var(--surface); stroke-width: 12; fill: none; }
+      .map .road2 { stroke: var(--surface); stroke-width: 5; fill: none; }
+      .map .pin   { fill: var(--brand); }
+      .map .dot   { fill: var(--brand-ink); }
+      .map a {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--brand);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(28px, 5vw, 64px);
+      }
+      .contact-grid h3 {
+        font: 600 1.15rem var(--font);
+        margin: 0 0 16px;
+      }
+      dl.info {
+        grid-template-columns: 6.5rem 1fr;
+        border-top: 0;
+        padding-top: 0;
+      }
+      dl.info dd {
+        overflow-wrap: anywhere;
+      }
+      dl.info a {
+        color: var(--brand);
+        text-underline-offset: 3px;
+      }
+      form {
+        display: grid;
+        gap: 12px;
+      }
+      label {
+        font-weight: 600;
+      }
+      textarea {
+        font: inherit;
+        color: var(--ink);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px 16px;
+        min-height: 9rem;
+        resize: vertical;
+        width: 100%;
+      }
+      button.btn {
+        border: 0;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        justify-self: start;
+      }
+      .status {
+        margin: 0;
+        min-height: 1.6em;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 32px 0 44px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      footer .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .flutter {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .flutter svg {
+        width: 22px;
+        height: 28px;
+      }
+      @media (max-width: 760px) {
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: 0;
+          padding: 44px 0 56px;
+        }
+        .panel {
+          order: 2;
+        }
+        .about,
+        .skills,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        dl {
+          grid-template-columns: 6.5rem 1fr;
+        }
+        .map a {
+          position: static;
+          display: block;
+          text-align: center;
+          border-radius: 0;
+          border-width: 1px 0 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <a class="brand" href="#home">Ahmad Alfathussholih</a>
+        <nav aria-label="Navigasi utama">
+          <a href="#home">Home</a>
+          <a href="#profil">Profil</a>
+          <a href="#skill">Skill</a>
+          <a href="#kontak">Kontak</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wrap">
+        <section class="hero" id="home">
+          <div>
+            <p class="hi">Halo, saya</p>
+            <h1>Ahmad Alfathussholih</h1>
+            <p class="role">Student IT Al-Imam Nafi</p>
+            <p class="lead">Pelajar yang sedang belajar membangun website dengan HTML, CSS, dan JavaScript.</p>
+            <a class="btn" href="#profil">Lainnya</a>
+          </div>
+          <div class="panel" aria-hidden="true"><span class="t">&lt;!DOCTYPE html&gt;</span>
+<span class="t">&lt;html</span> lang=<span class="q">"id"</span><span class="t">&gt;</span>
+  <span class="t">&lt;body&gt;</span>
+    <span class="t">&lt;h1&gt;</span>Halo, dunia!<span class="t">&lt;/h1&gt;</span>
+  <span class="t">&lt;/body&gt;</span>
+<span class="t">&lt;/html&gt;</span></div>
+        </section>
+        <section class="block" id="profil">
+          <h2>Profil</h2>
+          <div class="about">
+            <div class="avatar" aria-hidden="true">A</div>
+            <div>
+              <p>
+                Saya Ahmad Alfathussholih, pelajar jurusan IT di Al-Imam Nafi.
+                Saya tertarik pada pengembangan web dan terus berlatih membuat
+                halaman yang rapi, mudah dipakai, dan nyaman dilihat di berbagai perangkat.
+              </p>
+              <dl>
+                <dt>Nama</dt>
+                <dd>Ahmad Alfathussholih</dd>
+                <dt>Status</dt>
+                <dd>Pelajar</dd>
+                <dt>Bidang</dt>
+                <dd>Web development</dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+        <section class="block" id="skill">
+          <h2>Skill</h2>
+          <div class="skills">
+            <div class="skill">
+              <svg viewBox="0 0 64 64" role="img" aria-label="Logo HTML5">
+                <path d="M8 4h48l-5 50-19 6-19-6z" fill="#E44D26"/>
+                <path d="M32 55.5l15-4.2L51 9H32z" fill="#F16529"/>
+                <text x="32" y="41" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="30" fill="#fff">5</text>
+              </svg>
+              <h3>HTML</h3>
+              <p>Menyusun struktur halaman web yang rapi dan mudah dipahami.</p>
+            </div>
+            <div class="skill">
+              <svg viewBox="0 0 64 64" role="img" aria-label="Logo CSS3">
+                <path d="M8 4h48l-5 50-19 6-19-6z" fill="#1572B6"/>
+                <path d="M32 55.5l15-4.2L51 9H32z" fill="#33A9DC"/>
+                <text x="32" y="41" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="30" fill="#fff">3</text>
+              </svg>
+              <h3>CSS</h3>
+              <p>Mengatur tata letak dan tampilan agar konsisten di layar apa pun.</p>
+            </div>
+            <div class="skill">
+              <svg viewBox="0 0 64 64" role="img" aria-label="Logo JavaScript">
+                <rect x="6" y="6" width="52" height="52" rx="3" fill="#F7DF1E"/>
+                <text x="53" y="52" text-anchor="end" font-family="Arial,sans-serif" font-weight="800" font-size="24" fill="#1A1A1A">JS</text>
+              </svg>
+              <h3>JavaScript</h3>
+              <p>Menambah interaksi dan logika supaya halaman terasa hidup.</p>
+            </div>
+
+          </div>
+        </section>
+        <section class="block" id="kontak">
+          <h2>Kontak</h2>
+          <div class="map">
+            <svg viewBox="0 0 800 320" role="img" aria-label="Ilustrasi peta lokasi">
+              <rect class="land" width="800" height="320"/>
+              <path class="water" d="M0 250 C160 210 260 290 420 250 S700 200 800 240 V320 H0Z"/>
+              <rect class="park" x="90" y="40" width="150" height="100" rx="10"/>
+              <rect class="park" x="560" y="170" width="120" height="70" rx="10"/>
+              <path class="road2" d="M0 60H800M0 230H800M150 0V320M520 0V320M690 0V320"/>
+              <path class="road" d="M0 160H800M330 0V320"/>
+              <g transform="translate(330 160)">
+                <path class="pin" d="M0 0C-12-16-26-30-26-50A26 26 0 0 1 26-50C26-30 12-16 0 0Z"/>
+                <circle class="dot" cy="-50" r="10"/>
+              </g>
+            </svg>
+            <a href="https://maps.app.goo.gl/ZpSXJqyBM22Nt7yW6" target="_blank" rel="noopener">Buka di Google Maps</a>
+          </div>
+          <div class="contact-grid">
+            <div>
+              <h3>Alamat dan kontak</h3>
+              <dl class="info">
+                <dt>Alamat</dt>
+                <dd>Jl.Sawah darat GG.Paci-paci 5, Kota.Tanggerang, Provinsi.Banten</dd>
+                <dt>GitHub</dt>
+                <dd><a href="https://github.com/hlts_10" target="_blank" rel="noopener noreferrer">@hlts_10</a></dd>
+                <dt>Instagram</dt>
+                <dd><a href="https://instagram.com/hlts_10" target="_blank" rel="noopener noreferrer">@hlts_10</a></dd>
+                <dt>Telepon</dt>
+                <dd><a href="tel:+6285718637819">+62 857-1863-7819</a></dd>
+              </dl>
+            </div>
+            <div>
+              <h3>Catatan</h3>
+              <form id="note-form" novalidate>
+                <label for="note">Tulis catatan untuk saya</label>
+                <textarea id="note" name="note" placeholder="Tulis pesan atau catatan di sini"></textarea>
+                <button class="btn" type="submit">Kirim catatan</button>
+                <p class="status" id="note-status" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>© 2026 Ahmad Alfathussholih</span>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        var form = document.getElementById('note-form');
+        var note = document.getElementById('note');
+        var status = document.getElementById('note-status');
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var text = note.value.trim();
+          if (!text) {
+            status.textContent = 'Tulis catatan dulu sebelum mengirim.';
+            note.focus();
+            return;
+        }
+          status.textContent = 'Membuka aplikasi email...';
+          location.href = 'mailto:halo@contoh.dev'
+            + '?subject=' + encodeURIComponent('Catatan dari portofolio')
+            + '&body=' + encodeURIComponent(text);
+        });
+      })();
+    </script>
+  </body>
+</html>
